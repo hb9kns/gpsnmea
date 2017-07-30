@@ -27,21 +27,22 @@ based on information by [Dale DePriest]( http://www.gpsinformation.org/dale/nmea
 - 0.0,M : Height of geoid (mean sea level) above WGS84 ellipsoid
 - (empty field) : time in seconds since last DGPS update
 - 0000 : DGPS station ID number
-- *59 : checksum data, always begins with *
+- `*59` : checksum data, always begins with `*`
 
 _If the height of geoid is missing then the altitude should be suspect. Some non-standard implementations report altitude with respect to the ellipsoid rather than geoid altitude. Some units do not report negative altitudes at all. This is the only sentence that reports altitude._
 
 ### RMC - essential gps pvt (position, velocity, time) data
 
-	$GPRMC,123519,A,4807.038,N,01131.000,E,022.4,084.4,230394,003.1,W*6A
+	$GPRMC,210209.000,V,5347.5779,N,00754.1630,E,000.0,000.0,300717,,,N*77
 
 - RMC : Recommended Minimum sentence C
-- 123519 : Fix taken at 12:35:19 UTC
-- A : Status A=active or V=Void.
-- 4807.038,N : Latitude 48 deg 07.038' N
-- 01131.000,E Longitude 11 deg 31.000' E
-- 022.4 : Speed over the ground in knots
-- 084.4 : Track angle in degrees True
-- 230394 : Date - 23rd of March 1994
-- 003.1,W : Magnetic Variation
-- *6A : The checksum data, always begins with *
+- 210209.000 : Fix taken at 21:02:09 UTC (.NNN seems to vary randomly)
+- V : Status A=active or V=Void.
+- 5347.5779,N : Latitude 53 deg 47.5779 min N
+- 00754.1630,E : Longitude 7 deg 54.1630 min E
+- 000.0 : Speed over the ground in knots
+- 000.0 : Track angle in degrees True
+- 300717 : Date - 30th of July 2017
+- (empty field) : _unknown_
+- (empty field),N : Magnetic Variation (?)
+- `*77` : checksum data, always begins with `*`
